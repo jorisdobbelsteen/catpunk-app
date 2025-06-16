@@ -1,0 +1,5 @@
+build/
+
+# Jetbrains
+/.idea
+/.fleet
