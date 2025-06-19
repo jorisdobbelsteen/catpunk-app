@@ -1,0 +1,21 @@
+/ {
+	aliases {
+		gyro0 = &i3g4250d_gyro;
+	};
+};
+
+&spi1 {
+	pinctrl-0 = <&spi1_sck_pa5 &spi1_miso_pa6 &spi1_mosi_pa7>;
+	pinctrl-names = "default";
+	status = "okay";
+
+	cs-gpios = <&gpioe 3 GPIO_ACTIVE_LOW>;
+
+	i3g4250d_gyro: i3g4250d-gyro@0 {
+		// PE0 INT1 / PE1 INT2 / PE3 CS
+		compatible = "st,i3g4250d";
+		spi-max-frequency = <10000000>;
+		status = "okay";
+		reg = <0>;
+	};
+};
